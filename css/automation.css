@@ -1,39 +1,129 @@
 /* ==========================================================================
-   SV Electricals & Smart Home Automation - Modern Design & Portfolio Styles
+   SV Electricals & Smart Home Automation - Fixes & Dedicated Portfolio Styles
    ========================================================================== */
 
 :root {
     --sv-primary: #F68A0A;
     --sv-primary-hover: #e07a04;
-    --sv-primary-glow: rgba(246, 138, 10, 0.35);
     --sv-dark: #121820;
-    --sv-dark-card: #1a222d;
-    --sv-dark-surface: #222c3a;
-    --sv-cyan: #00d2ff;
-    --sv-cyan-glow: rgba(0, 210, 255, 0.3);
-    --sv-purple: #9d4edd;
-    --sv-text-muted: #8e9cae;
-    --sv-border-light: rgba(255, 255, 255, 0.08);
+    --sv-slate: #1e293b;
+    --sv-text-dark: #1e293b;
+    --sv-text-body: #334155;
 }
 
-/* Glassmorphism & Modern Card Accents */
-.glass-panel {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--sv-border-light);
-    border-radius: 16px;
+/* -------------------------------------------------------------
+   1. CRITICAL FIX: Navbar Visibility & Text Contrast
+   ------------------------------------------------------------- */
+.navbar-brand h1 {
+    font-size: 26px !important;
+    white-space: nowrap;
 }
 
-.glass-panel-dark {
-    background: rgba(18, 24, 32, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(246, 138, 10, 0.2);
+.navbar .nav-link,
+.navbar .nav-item.nav-link {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 10px 14px !important;
+    text-shadow: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-item.nav-link:hover,
+.navbar .nav-link.active,
+.navbar .nav-item.nav-link.active {
+    color: var(--sv-primary) !important;
+}
+
+.nav-smart-badge {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+    background: #F68A0A;
+    color: #fff !important;
     border-radius: 20px;
+    margin-left: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-/* Section Subtitles & Badges */
+/* -------------------------------------------------------------
+   2. CRITICAL FIX: Hero Carousel Overlays & High Contrast
+   ------------------------------------------------------------- */
+.header-carousel .header-carousel-item .carousel-caption {
+    background: linear-gradient(90deg, rgba(12, 17, 24, 0.95) 0%, rgba(12, 17, 24, 0.85) 45%, rgba(12, 17, 24, 0.4) 75%, rgba(12, 17, 24, 0.15) 100%) !important;
+    z-index: 9;
+}
+
+.hero-bg-half-smart {
+    background-image: url(../images/smart_villa.jpg);
+    clip-path: polygon(37% 0%, 100% 0%, 100% 100%, 0% 100%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    filter: brightness(0.95);
+}
+
+.hero-bg-half-curtains {
+    background-image: url(../images/smart_curtains.jpg);
+    clip-path: polygon(37% 0%, 100% 0%, 100% 100%, 0% 100%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    filter: brightness(0.95);
+}
+
+.hero-feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.hero-feature-tag {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-feature-tag i {
+    color: var(--sv-primary);
+}
+
+/* -------------------------------------------------------------
+   3. CRITICAL FIX: Readable Body Text (No Washed Out Gray)
+   ------------------------------------------------------------- */
+.about p,
+.about .text-muted,
+.about-desc,
+.section-desc,
+.text-body-dark {
+    color: #334155 !important;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
 .badge-smart {
     display: inline-flex;
     align-items: center;
@@ -50,81 +140,8 @@
     margin-bottom: 12px;
 }
 
-.badge-smart i {
-    font-size: 0.95rem;
-}
-
-/* Navigation Badge */
-.nav-smart-badge {
-    font-size: 0.65rem;
-    padding: 2px 7px;
-    background: #F68A0A;
-    color: #fff;
-    border-radius: 20px;
-    margin-left: 5px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    vertical-align: middle;
-}
-
 /* -------------------------------------------------------------
-   Hero Carousel Enhancements for Home Automation
-   ------------------------------------------------------------- */
-.hero-bg-half-smart {
-    background-image: url(../images/smart_villa.jpg);
-    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    filter: brightness(0.95);
-}
-
-.hero-bg-half-curtains {
-    background-image: url(../images/smart_curtains.jpg);
-    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    filter: brightness(0.95);
-}
-
-.hero-feature-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 25px;
-}
-
-.hero-feature-tag {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.hero-feature-tag i {
-    color: var(--sv-primary);
-}
-
-/* -------------------------------------------------------------
-   Interactive Smart Living Room Simulator
+   4. Interactive Smart Living Room Simulator
    ------------------------------------------------------------- */
 .simulator-section {
     background: linear-gradient(135deg, #0f141c 0%, #17212e 50%, #0d1219 100%);
@@ -133,37 +150,13 @@
     overflow: hidden;
 }
 
-.simulator-section::before {
-    content: '';
-    position: absolute;
-    top: -150px;
-    left: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(246, 138, 10, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.simulator-section::after {
-    content: '';
-    position: absolute;
-    bottom: -150px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(0, 210, 255, 0.12) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
 .simulator-room-container {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    height: 480px;
+    height: 460px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     background: #090c10;
 }
 
@@ -173,19 +166,17 @@
     background-image: url(../images/smart_lighting.jpg);
     background-size: cover;
     background-position: center;
-    transition: filter 0.8s ease, transform 1s ease;
+    transition: filter 0.6s ease;
 }
 
-/* Dynamic Ambient Glow Overlay */
 .simulator-light-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    transition: background 0.6s ease, opacity 0.6s ease;
     mix-blend-mode: screen;
 }
 
-/* Lighting Modes */
 .light-mode-warm {
     background: radial-gradient(circle at 50% 20%, rgba(255, 175, 75, 0.55) 0%, rgba(255, 120, 20, 0.25) 50%, transparent 80%);
     opacity: 0.95;
@@ -211,21 +202,18 @@
     opacity: 1;
 }
 
-/* Simulated Motorized Curtains Overlay */
+/* Simulated Motorized Curtains */
 .simulator-curtain-left,
 .simulator-curtain-right {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 0%;
+    width: 6%;
     background: linear-gradient(to right, rgba(20, 20, 26, 0.96), rgba(35, 35, 45, 0.92));
     border-bottom: 3px solid rgba(246, 138, 10, 0.6);
-    transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 5;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .simulator-curtain-left {
@@ -238,16 +226,6 @@
     border-left: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Curtain fabric folds texture */
-.simulator-curtain-left::after,
-.simulator-curtain-right::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(0, 0, 0, 0.15) 15px, rgba(255, 255, 255, 0.04) 30px);
-}
-
-/* Curtain state classes */
 .curtains-open .simulator-curtain-left,
 .curtains-open .simulator-curtain-right {
     width: 6%;
@@ -255,7 +233,7 @@
 
 .curtains-half .simulator-curtain-left,
 .curtains-half .simulator-curtain-right {
-    width: 25%;
+    width: 28%;
 }
 
 .curtains-closed .simulator-curtain-left,
@@ -263,34 +241,32 @@
     width: 50.1%;
 }
 
-/* Animated Smart BLDC Fan Element in Simulator */
+/* Fan Element in Simulator */
 .simulator-fan-widget {
     position: absolute;
-    top: 35px;
-    right: 45px;
+    top: 30px;
+    right: 35px;
     z-index: 10;
-    background: rgba(18, 24, 32, 0.85);
+    background: rgba(18, 24, 32, 0.88);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50px;
-    padding: 8px 18px 8px 12px;
+    padding: 8px 16px 8px 10px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    gap: 10px;
 }
 
 .fan-icon-spin {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: rgba(246, 138, 10, 0.15);
+    background: rgba(246, 138, 10, 0.2);
     color: var(--sv-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+    font-size: 1.15rem;
 }
 
 @keyframes spinBlades {
@@ -298,48 +274,32 @@
     to { transform: rotate(360deg); }
 }
 
-.fan-speed-off .fan-icon-spin i {
-    animation: none;
-    color: var(--sv-text-muted);
-}
+.fan-speed-off .fan-icon-spin i { animation: none; color: #8e9cae; }
+.fan-speed-1 .fan-icon-spin i { animation: spinBlades 2s linear infinite; color: #00d2ff; }
+.fan-speed-3 .fan-icon-spin i { animation: spinBlades 0.8s linear infinite; color: #F68A0A; }
+.fan-speed-5 .fan-icon-spin i { animation: spinBlades 0.35s linear infinite; color: #ff3366; }
 
-.fan-speed-1 .fan-icon-spin i {
-    animation: spinBlades 2s linear infinite;
-    color: var(--sv-cyan);
-}
-
-.fan-speed-3 .fan-icon-spin i {
-    animation: spinBlades 0.8s linear infinite;
-    color: var(--sv-primary);
-}
-
-.fan-speed-5 .fan-icon-spin i {
-    animation: spinBlades 0.35s linear infinite;
-    color: #ff3366;
-}
-
-/* Simulator HUD / Status Pill */
 .simulator-hud {
     position: absolute;
-    bottom: 25px;
-    left: 25px;
+    bottom: 20px;
+    left: 20px;
     z-index: 10;
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .simulator-hud-badge {
     background: rgba(18, 24, 32, 0.88);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    padding: 6px 14px;
-    font-size: 0.82rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #e2e8f0;
+    color: #f1f5f9;
 }
 
 .status-dot {
@@ -350,172 +310,159 @@
     box-shadow: 0 0 8px #10b981;
 }
 
-/* Control Panel in Simulator */
 .simulator-controls {
-    background: var(--sv-dark-card);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1a222d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 30px;
+    padding: 26px;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
 }
 
 .control-group-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     color: var(--sv-primary);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .control-btn-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
-    gap: 10px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .sim-btn {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
-    border-radius: 12px;
-    padding: 12px 10px;
-    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 8px;
+    font-size: 0.82rem;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 }
 
 .sim-btn i {
-    font-size: 1.15rem;
-    color: var(--sv-text-muted);
-    transition: color 0.25s ease;
+    font-size: 1.1rem;
+    color: #94a3b8;
 }
 
 .sim-btn:hover {
-    background: rgba(246, 138, 10, 0.1);
-    border-color: rgba(246, 138, 10, 0.4);
+    background: rgba(246, 138, 10, 0.15);
+    border-color: var(--sv-primary);
     color: #fff;
-    transform: translateY(-2px);
-}
-
-.sim-btn:hover i {
-    color: var(--sv-primary);
 }
 
 .sim-btn.active {
-    background: linear-gradient(135deg, rgba(246, 138, 10, 0.25), rgba(246, 138, 10, 0.08));
+    background: rgba(246, 138, 10, 0.25);
     border-color: var(--sv-primary);
-    color: #ffffff;
-    box-shadow: 0 0 16px rgba(246, 138, 10, 0.35);
+    color: #fff;
+    box-shadow: 0 0 14px rgba(246, 138, 10, 0.35);
 }
 
 .sim-btn.active i {
     color: var(--sv-primary);
 }
 
-/* One Touch Scene Presets */
 .preset-scene-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
 }
 
 .preset-btn {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 14px;
-    padding: 14px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 12px;
     color: #f1f5f9;
     text-align: left;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
-.preset-btn:hover {
-    border-color: var(--sv-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
+.preset-btn:hover,
 .preset-btn.active {
-    background: linear-gradient(135deg, rgba(246, 138, 10, 0.3), rgba(18, 24, 32, 0.9));
     border-color: var(--sv-primary);
-    box-shadow: 0 0 20px rgba(246, 138, 10, 0.4);
+    background: rgba(246, 138, 10, 0.2);
 }
 
 .preset-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(246, 138, 10, 0.15);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(246, 138, 10, 0.18);
     color: var(--sv-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     flex-shrink: 0;
 }
 
 /* -------------------------------------------------------------
-   Automation Services & Features Grid
+   5. Dedicated Home Automation Portfolio Cards
    ------------------------------------------------------------- */
-.smart-service-card {
+.auto-card {
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.smart-service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(246, 138, 10, 0.18);
-    border-color: rgba(246, 138, 10, 0.3);
+.auto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    border-color: var(--sv-primary);
 }
 
-.smart-card-img-wrap {
+.auto-card-img-wrap {
     position: relative;
-    height: 230px;
+    height: 220px;
     overflow: hidden;
+    background: #0f172a;
 }
 
-.smart-card-img-wrap img {
+.auto-card-img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
 }
 
-.smart-service-card:hover .smart-card-img-wrap img {
-    transform: scale(1.08);
+.auto-card:hover .auto-card-img-wrap img {
+    transform: scale(1.06);
 }
 
-.smart-card-badge {
+.auto-card-badge {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 14px;
+    left: 14px;
     background: rgba(18, 24, 32, 0.88);
     backdrop-filter: blur(8px);
     color: #fff;
-    padding: 5px 12px;
-    border-radius: 30px;
+    padding: 4px 12px;
+    border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 700;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -524,256 +471,92 @@
     gap: 6px;
 }
 
-.smart-card-badge i {
+.auto-card-badge i {
     color: var(--sv-primary);
 }
 
-.smart-card-body {
-    padding: 25px;
+.auto-card-body {
+    padding: 22px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.smart-feature-list {
+.auto-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.auto-card-desc {
+    color: #475569;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.auto-card-list {
     list-style: none;
     padding: 0;
-    margin: 15px 0 20px 0;
-    flex: 1;
+    margin: 0 0 16px 0;
 }
 
-.smart-feature-list li {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.smart-feature-list li i {
-    color: var(--sv-primary);
-    font-size: 0.85rem;
-}
-
-/* -------------------------------------------------------------
-   Portfolio Filter Tabs & Project Cards
-   ------------------------------------------------------------- */
-.portfolio-filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
-}
-
-.portfolio-filter-btn {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    color: #475569;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.portfolio-filter-btn:hover {
-    background: rgba(246, 138, 10, 0.1);
-    color: var(--sv-primary);
-    border-color: var(--sv-primary);
-}
-
-.portfolio-filter-btn.active {
-    background: var(--sv-primary);
-    color: #ffffff;
-    border-color: var(--sv-primary);
-    box-shadow: 0 6px 20px rgba(246, 138, 10, 0.35);
-}
-
-.portfolio-item-card {
-    background: #ffffff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.portfolio-item-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-}
-
-.portfolio-img-box {
-    position: relative;
-    height: 260px;
-    overflow: hidden;
-}
-
-.portfolio-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.portfolio-item-card:hover .portfolio-img-box img {
-    transform: scale(1.08);
-}
-
-.portfolio-overlay-tags {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    z-index: 2;
-}
-
-.portfolio-tag {
-    background: rgba(18, 24, 32, 0.85);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.portfolio-info-box {
-    padding: 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.portfolio-meta-client {
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--sv-primary);
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-}
-
-.portfolio-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 10px;
-}
-
-.portfolio-desc {
-    color: #64748b;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    flex: 1;
-}
-
-.portfolio-specs-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.spec-pill {
-    background: #f1f5f9;
-    color: #334155;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.spec-pill i {
-    color: var(--sv-primary);
-}
-
-.btn-view-specs {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    color: #1e293b;
-    font-weight: 600;
+.auto-card-list li {
     font-size: 0.88rem;
-    padding: 10px 18px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    width: 100%;
+    color: #334155;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
 }
 
-.btn-view-specs:hover {
-    background: var(--sv-primary);
-    border-color: var(--sv-primary);
-    color: #fff;
+.auto-card-list li i {
+    color: var(--sv-primary);
+    font-size: 0.8rem;
 }
 
 /* -------------------------------------------------------------
-   Interactive Smart Home Cost & Package Estimator
+   6. Estimator Section
    ------------------------------------------------------------- */
-.estimator-section {
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-}
-
 .estimator-card {
     background: #ffffff;
-    border-radius: 24px;
-    padding: 35px;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
     border: 1px solid #e2e8f0;
 }
 
 .estimator-property-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 12px;
-    margin-bottom: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 22px;
 }
 
 .prop-option {
     border: 2px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 14px 10px;
+    border-radius: 12px;
+    padding: 12px 8px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     background: #fff;
 }
 
 .prop-option i {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #64748b;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     display: block;
-    transition: color 0.25s ease;
 }
 
 .prop-option span {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: #334155;
     display: block;
-}
-
-.prop-option:hover {
-    border-color: var(--sv-primary);
-    background: rgba(246, 138, 10, 0.04);
 }
 
 .prop-option.active {
@@ -781,74 +564,64 @@
     background: rgba(246, 138, 10, 0.08);
 }
 
-.prop-option.active i {
-    color: var(--sv-primary);
-}
-
+.prop-option.active i,
 .prop-option.active span {
     color: var(--sv-primary);
 }
 
-/* Estimator Checkbox Items */
 .feature-toggle-item {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.feature-toggle-item:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
+    transition: all 0.2s ease;
 }
 
 .feature-toggle-item.checked {
-    background: rgba(246, 138, 10, 0.07);
+    background: rgba(246, 138, 10, 0.06);
     border-color: rgba(246, 138, 10, 0.4);
 }
 
 .feature-toggle-info {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .feature-toggle-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     color: var(--sv-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    font-size: 1rem;
 }
 
 .custom-switch-check {
     width: 22px;
     height: 22px;
-    border-radius: 6px;
+    border-radius: 5px;
     border: 2px solid #cbd5e1;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
     background: #fff;
+    color: #fff;
+    font-size: 0.75rem;
 }
 
 .feature-toggle-item.checked .custom-switch-check {
     background: var(--sv-primary);
     border-color: var(--sv-primary);
-    color: #fff;
 }
 
 .estimator-summary-box {
@@ -856,73 +629,23 @@
     color: #fff;
     border-radius: 20px;
     padding: 30px;
-    position: sticky;
-    top: 90px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .estimate-price-badge {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 800;
     color: var(--sv-primary);
-    margin: 15px 0 5px 0;
+    margin: 12px 0 6px 0;
 }
 
-/* -------------------------------------------------------------
-   Modal Details for Project Specs
-   ------------------------------------------------------------- */
-.modal-project-header {
-    background: linear-gradient(135deg, #121820 0%, #1a232f 100%);
-    color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 24px;
-}
-
-.specs-table th {
-    background: #f8fafc;
-    color: #475569;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.specs-table td {
-    font-size: 0.92rem;
-    color: #334155;
-}
-
-/* -------------------------------------------------------------
-   Responsive Refinements
-   ------------------------------------------------------------- */
 @media (max-width: 991px) {
     .simulator-room-container {
-        height: 380px;
-        margin-bottom: 25px;
+        height: 340px;
+        margin-bottom: 20px;
     }
-    
-    .hero-bg-half-smart,
-    .hero-bg-half-curtains {
-        width: 100%;
-        opacity: 0.35;
-        clip-path: none;
-    }
-
     .preset-scene-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 576px) {
-    .simulator-room-container {
-        height: 300px;
-    }
-    
-    .control-btn-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .estimator-card {
-        padding: 20px;
     }
 }
