@@ -18,7 +18,6 @@
 
     // Header carousel
     $(".header-carousel").owlCarousel({
-        animateOut: 'fadeOut',
         items: 1,
         margin: 0,
         stagePadding: 0,
